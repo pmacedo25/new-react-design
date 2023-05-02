@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { ClubbiThemeProvider, Layout, themeClubbi } from 'clubbi-ui'
+import { store } from 'stores'
+import { saveState } from 'stores/helpers'
+import { ApplicationRouter } from 'routes';
 
-function App() {
+export const App = () => {
+  store.subscribe(() => {
+    saveState(store.getState())
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={store}>
+      <ClubbiThemeProvider theme={themeClubbi}>
+        <Layout>
+          <BrowserRouter>
+            <ApplicationRouter />
+          </BrowserRouter>
+        </Layout>
+      </ClubbiThemeProvider>
+    </Provider>
+  )
 }
 
-export default App;
