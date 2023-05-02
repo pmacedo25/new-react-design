@@ -1,14 +1,10 @@
-import {
-  CategoryProducts,
-  CustomCorridor,
-  GroupListing,
-  Product,
-  ProductsGroup,
-  SectionCategories,
-  SpecialSupplier,
-  Tag,
-  TagProducts,
-} from 'models/types'
+
+import { Tag } from 'models/Tags'
+import { CategoryProducts } from 'models/Categories'
+import { SpecialSupplier } from 'models/Common'
+import { GroupListing, Product, ProductsGroup } from 'models/Product'
+import { CustomSection, SectionCategories } from 'models/Sections'
+import { TagProducts } from 'models/Tags'
 import * as querystring from 'querystring'
 import { apiGet } from 'utils/api'
 
@@ -24,7 +20,7 @@ export interface WelcomeData {
   specialSuppliers: SpecialSupplier[]
   bfCorridor?: Product[]
   customPromotions: Product[]
-  customCorridors: CustomCorridor[]
+  customCorridors: CustomSection[]
 }
 
 interface PromotionsData {
