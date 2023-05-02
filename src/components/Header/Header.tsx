@@ -2,7 +2,7 @@ import { Grid } from 'clubbi-ui'
 import { Link } from 'react-router-dom'
 import { SearchBar as SearchBarClubbi } from 'clubbi-ui'
 import { StyledGrid, StyledHeader, StyledSearchBar } from './Header.style'
-import { useAppSelector } from 'hooks/hooks'
+import { useAppSelector } from 'hooks/Common'
 import SearchBarHooks from 'hooks/SearchBar'
 
 const PLACE_HOLDER = 'Digite a sua busca'
@@ -33,6 +33,7 @@ const Header = () => {
       <StyledHeader>
         <StyledGrid>
           <Grid item xs={3} md={3} sm={3}>
+            {/*todo devemos componentizar essa logo na clubbi UI */}
             <Link to="/">
               <img src={'/img/clubbi-logo-white.png'} alt="Logo Clubbi" width={80} />
             </Link>

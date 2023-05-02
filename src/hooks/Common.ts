@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { getDayOff } from 'services/productApi'
 import type { AppDispatch } from 'stores'
-import { DayOff } from 'models/types'
+import { DayOff } from 'models/Common'
 import { RootState } from 'stores'
 import { getDateFormatted } from 'utils/utils'
 
