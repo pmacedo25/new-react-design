@@ -1,44 +1,27 @@
-import { Middleware } from "@reduxjs/toolkit"
-import { RootState } from "stores"
+import { RootState } from 'stores'
 
-const localStorageValues = (state: RootState) => {
-  const KEYS_IN_LOCAL_STORAGE = ['cart', 'session', 'algoliaEvent']
-  const entries = Object.entries(state).filter(([key, _]) => KEYS_IN_LOCAL_STORAGE.includes(key))
+const STORAGE_KEY = 'react-architecture-template'
 
-  const { value: _, searchedTerm: __, ...remaining } = state.search
-  entries.push(['search', remaining])
-
-  return Object.fromEntries(entries)
-}
-
-export const loadState = () => {
+export const loadState = (): RootState | undefined => {
   try {
-    const serializedState = localStorage.getItem('state')
+    const serializedState = localStorage.getItem(STORAGE_KEY)
     if (serializedState === null) {
       return undefined
     }
-    const data = JSON.parse(serializedState)
-    return localStorageValues(data)
-  } catch (err) {
+
+    return JSON.parse(serializedState) as RootState
+  } catch {
     return undefined
   }
 }
 
-// localStorage.js
-//
 export const saveState = (state: RootState) => {
-  const sateToSave = localStorageValues(state)
   try {
-    const serializedState = JSON.stringify(sateToSave)
-    localStorage.setItem('state', serializedState)
+    const serializedState = JSON.stringify({
+      preferences: state.preferences,
+    })
+    localStorage.setItem(STORAGE_KEY, serializedState)
   } catch {
     // ignore write errors
   }
-}
-
-export const developerMiddlewares = (): Middleware[] => {
-  if (process.env.NODE_ENV == 'development') {
-    return []
-  }
-  return []
 }

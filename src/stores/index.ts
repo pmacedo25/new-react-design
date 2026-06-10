@@ -1,24 +1,20 @@
-import { configureStore, PreloadedState, combineReducers } from '@reduxjs/toolkit'
-import { developerMiddlewares, loadState } from 'stores/helpers'
-import { searchReducer } from 'stores/slices/search'
+import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolkit'
+import { loadState } from 'stores/helpers'
+import { preferencesReducer } from 'stores/slices/preferences'
 
 const reducers = combineReducers({
-  search: searchReducer,
-});
+  preferences: preferencesReducer,
+})
 
 export type RootState = ReturnType<typeof reducers>
-
 export type AppStore = ReturnType<typeof setupStore>
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     preloadedState,
     reducer: reducers,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(developerMiddlewares()),
   })
 }
 
 export const store = setupStore(loadState())
-
-export const { dispatch } = store
 export type AppDispatch = typeof store.dispatch

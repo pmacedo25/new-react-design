@@ -1,42 +1,33 @@
 import { Route, Switch } from 'react-router-dom'
-import { useCallback, useMemo } from 'react'
-import Header from 'components/Header/Header'
+import { AppShell } from 'components/AppShell/AppShell'
+import { NavigationItem } from 'models/blueprint'
+import { ExamplesPage } from 'pages/ExamplesPage'
+import { HomePage } from 'pages/HomePage'
 
-interface Props {
-  data?: any
-}
+const navigation: NavigationItem[] = [
+  {
+    label: 'Home',
+    path: '/',
+    description: 'Why this starter exists and how the folders work together.',
+  },
+  {
+    label: 'Examples',
+    path: '/examples',
+    description: 'Practical examples for pages, components, hooks, services and store.',
+  },
+]
 
-const MainSwitch = ({ data: _data, ...originalProps }: Props) => {
-  const dataGenerator = useMemo(() => {
-    return consumeData(_data)
-  }, [])
-  const getInitialData = useCallback(() => dataGenerator.next().value || null, [])
-  const props = { ...originalProps, getInitialData }
+export const AppRoutes = () => {
   return (
-    <Switch>
-      <Route path={'/'}>
-      </Route>
-    </Switch>
-  )
-}
-
-function* consumeData<T>(data: T) {
-  yield data
-  while (true) {
-    yield undefined
-  }
-}
-
-export const ApplicationRouter = ({ ...props }: Props) => {
-
-  return (
-    <>
+    <AppShell navigation={navigation}>
       <Switch>
-        <Route exact={false} path={'/'}>
-          <Header />
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route path="/examples">
+          <ExamplesPage />
         </Route>
       </Switch>
-      <MainSwitch {...props} />
-    </>
+    </AppShell>
   )
 }

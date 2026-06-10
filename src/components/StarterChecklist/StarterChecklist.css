@@ -1,0 +1,22 @@
+.starter-checklist {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.starter-checklist__item {
+  background: var(--surface-card);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-medium);
+  padding: 22px;
+}
+
+.starter-checklist__item h3 {
+  margin: 0 0 10px;
+}
+
+.starter-checklist__item p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}

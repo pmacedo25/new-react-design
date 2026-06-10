@@ -1,25 +1,24 @@
+import { useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { ClubbiThemeProvider, Layout, themeClubbi } from 'clubbi-ui'
-import { store } from 'stores'
+import { AppRoutes } from 'routes'
 import { saveState } from 'stores/helpers'
-import { ApplicationRouter } from 'routes';
+import { store } from 'stores'
 
 export const App = () => {
-  store.subscribe(() => {
-    saveState(store.getState())
-  })
+  useEffect(() => {
+    const unsubscribe = store.subscribe(() => {
+      saveState(store.getState())
+    })
+
+    return unsubscribe
+  }, [])
 
   return (
     <Provider store={store}>
-      <ClubbiThemeProvider theme={themeClubbi}>
-        <Layout>
-          <BrowserRouter>
-            <ApplicationRouter />
-          </BrowserRouter>
-        </Layout>
-      </ClubbiThemeProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
     </Provider>
   )
 }
-

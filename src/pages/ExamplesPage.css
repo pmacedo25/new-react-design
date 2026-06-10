@@ -1,0 +1,61 @@
+.examples-page {
+  display: grid;
+  gap: 28px;
+}
+
+.examples-page__controls {
+  background: var(--surface-card);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: 24px;
+  padding: 28px;
+}
+
+.examples-page__controls h2 {
+  margin: 0;
+}
+
+.examples-page__controls p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.examples-page__eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.examples-page__toolbar {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.examples-page__toolbar label {
+  display: grid;
+  gap: 8px;
+}
+
+.examples-page__toolbar select,
+.examples-page__toolbar button {
+  background: #fff;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-small);
+  min-height: 46px;
+  padding: 0 14px;
+}
+
+.examples-page__toolbar button {
+  background: var(--surface-strong);
+  color: var(--text-inverse);
+  margin-top: auto;
+}
+
+.examples-page__grid {
+  display: grid;
+  gap: 20px;
+}

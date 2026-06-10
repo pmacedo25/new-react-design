@@ -1,0 +1,21 @@
+:root {
+  --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --surface: #fffdf9;
+  --surface-alt: #fff5e8;
+  --surface-card: rgba(255, 255, 255, 0.9);
+  --surface-strong: #1f2937;
+  --border-soft: rgba(31, 41, 55, 0.1);
+  --border-strong: rgba(31, 41, 55, 0.18);
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-inverse: #f8fafc;
+  --brand: #df6d2d;
+  --brand-strong: #b45309;
+  --brand-soft: rgba(223, 109, 45, 0.12);
+  --accent: #0f766e;
+  --shadow-soft: 0 24px 48px rgba(31, 41, 55, 0.08);
+  --radius-large: 28px;
+  --radius-medium: 18px;
+  --radius-small: 12px;
+  --max-width: 1180px;
+}
