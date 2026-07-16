@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import { NavLink } from 'react-router-dom'
+import { appMetadata } from 'config/appMetadata'
 import { NavigationItem } from 'models/blueprint'
 import './AppShell.css'
 
@@ -14,22 +15,20 @@ export const AppShell = ({ children, navigation }: AppShellProps) => {
       <header className="app-shell__header">
         <div className="app-shell__content">
           <div className="app-shell__brand">
-            <p className="app-shell__eyebrow">React starter</p>
-            <h1>Architecture by structure, not by accident</h1>
-            <p>
-              A lean template showing how to split screens, reusable sections, services, hooks,
-              store and CSS from the beginning.
-            </p>
+            <p className="app-shell__eyebrow">{appMetadata.shortLabel}</p>
+            <h1>{appMetadata.tagline}</h1>
+            <p>{appMetadata.description}</p>
           </div>
 
           <nav className="app-shell__nav" aria-label="Primary">
             {navigation.map((item) => (
               <NavLink
                 key={item.path}
-                exact={item.path === '/'}
+                end={item.path === '/'}
                 to={item.path}
-                className="app-shell__nav-item"
-                activeClassName="app-shell__nav-item--active"
+                className={({ isActive }) =>
+                  `app-shell__nav-item${isActive ? ' app-shell__nav-item--active' : ''}`
+                }
               >
                 <span>{item.label}</span>
                 <small>{item.description}</small>

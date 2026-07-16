@@ -1,4 +1,4 @@
-import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { loadState } from 'stores/helpers'
 import { preferencesReducer } from 'stores/slices/preferences'
 
@@ -9,7 +9,7 @@ const reducers = combineReducers({
 export type RootState = ReturnType<typeof reducers>
 export type AppStore = ReturnType<typeof setupStore>
 
-export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
+export const setupStore = (preloadedState?: RootState) => {
   return configureStore({
     preloadedState,
     reducer: reducers,

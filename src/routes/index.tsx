@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { AppShell } from 'components/AppShell/AppShell'
 import { NavigationItem } from 'models/blueprint'
 import { ExamplesPage } from 'pages/ExamplesPage'
@@ -20,14 +20,10 @@ const navigation: NavigationItem[] = [
 export const AppRoutes = () => {
   return (
     <AppShell navigation={navigation}>
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Route path="/examples">
-          <ExamplesPage />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/examples" element={<ExamplesPage />} />
+      </Routes>
     </AppShell>
   )
 }

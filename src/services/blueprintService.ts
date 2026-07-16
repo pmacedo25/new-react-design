@@ -1,9 +1,9 @@
+import { appMetadata } from 'config/appMetadata'
 import { BlueprintContent } from 'models/blueprint'
 
 const blueprintContent: BlueprintContent = {
-  heroTitle: 'A starter project focused on structure before scale',
-  heroDescription:
-    'This template demonstrates how to organize a React codebase from day one. The examples are intentionally generic, so the folder decisions are easy to reuse in any product.',
+  heroTitle: `${appMetadata.productName}: structure before scale`,
+  heroDescription: `${appMetadata.description} The examples are intentionally generic, so the folder decisions are easy to reuse in any product.`,
   principles: [
     'Pages assemble complete screens.',
     'Components are reusable building blocks, not tiny fragments.',

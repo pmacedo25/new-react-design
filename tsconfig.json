@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2020",
     "lib": [
       "dom",
       "dom.iterable",
@@ -14,14 +14,52 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src"
+    "paths": {
+      "components/*": [
+        "./src/components/*"
+      ],
+      "config/*": [
+        "./src/config/*"
+      ],
+      "hooks/*": [
+        "./src/hooks/*"
+      ],
+      "models/*": [
+        "./src/models/*"
+      ],
+      "pages/*": [
+        "./src/pages/*"
+      ],
+      "routes": [
+        "./src/routes/index.tsx"
+      ],
+      "routes/*": [
+        "./src/routes/*"
+      ],
+      "services/*": [
+        "./src/services/*"
+      ],
+      "stores": [
+        "./src/stores/index.ts"
+      ],
+      "stores/*": [
+        "./src/stores/*"
+      ],
+      "theme/*": [
+        "./src/theme/*"
+      ],
+      "utils/*": [
+        "./src/utils/*"
+      ]
+    }
   },
   "include": [
-    "src"
+    "src",
+    "vite.config.ts"
   ]
 }
